@@ -27,17 +27,16 @@
 ## 使用 GPU / CUDA 的具体安装步骤（通过 Pip）
 
 
-cuda
+```bash
 
-- conda install pytorch==2.3.0 torchvision==0.18.0 torchaudio==2.3.0 pytorch-cuda=11.8 -c pytorch -c nvidia
-
+conda install pytorch==2.3.0 torchvision==0.18.0 torchaudio==2.3.0 pytorch-cuda=11.8 -c pytorch -c nvidia
 或者
+pip install torch==2.3.0 torchvision==0.18.0 torchaudio==2.3.0 --index-url https://download.pytorch.org/whl/cu118
 
-- `pip install torch==2.3.0 torchvision==0.18.0 torchaudio==2.3.0 --index-url https://download.pytorch.org/whl/cu118`
-
-- `pip install --force-reinstall onnxruntime-gpu`
-- `pip install "audio-separator[gpu]"`
-- `apt-get update; apt-get install -y ffmpeg`
+pip install --force-reinstall onnxruntime-gpu
+pip install "audio-separator[gpu]"
+apt-get update; apt-get install -y ffmpeg
+```
 
 ONNX Runtime 仍需要 CUDA 11 库。
 所以cuda安装11.8版本
