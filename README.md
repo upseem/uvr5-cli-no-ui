@@ -129,8 +129,6 @@ To see a list of supported models, run `audio-separator --list_models`
 Any file listed in the list models output can be specified (with file extension) with the model_filename parameter (e.g. `--model_filename UVR_MDXNET_KARA_2.onnx`) and it will be automatically downloaded to the `--model_file_dir` (default: `/tmp/audio-separator-models/`) folder on first usage.
 
 ### Full command-line interface options
-
-```sh
 ### 命令行选项翻译与说明
 
 `audio-separator` 是用于将音频文件分离成不同音轨的工具。以下是其命令行选项及其对应的中文翻译和说明：
@@ -196,7 +194,6 @@ Any file listed in the list models output can be specified (with file extension)
 - `--mdxc_pitch_shift MDXC_PITCH_SHIFT`：处理时将音频音调调整一定数量的半音。可能改善低音/高音人声的输出（默认：0）。
 
 以上是 `audio-separator` 命令行工具的主要参数及其说明。使用这些参数，可以更好地控制音频分离的过程和结果。
-```
 
 ### As a Dependency in a Python Project
 
