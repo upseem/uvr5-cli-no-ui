@@ -131,69 +131,71 @@ Any file listed in the list models output can be specified (with file extension)
 ### Full command-line interface options
 
 ```sh
-usage: audio-separator [-h] [-v] [-d] [-e] [-l] [--log_level LOG_LEVEL] [-m MODEL_FILENAME] [--output_format OUTPUT_FORMAT] [--output_dir OUTPUT_DIR] [--model_file_dir MODEL_FILE_DIR] [--invert_spect]
-                       [--normalization NORMALIZATION] [--single_stem SINGLE_STEM] [--sample_rate SAMPLE_RATE] [--mdx_segment_size MDX_SEGMENT_SIZE] [--mdx_overlap MDX_OVERLAP] [--mdx_batch_size MDX_BATCH_SIZE]
-                       [--mdx_hop_length MDX_HOP_LENGTH] [--mdx_enable_denoise] [--vr_batch_size VR_BATCH_SIZE] [--vr_window_size VR_WINDOW_SIZE] [--vr_aggression VR_AGGRESSION] [--vr_enable_tta]
-                       [--vr_high_end_process] [--vr_enable_post_process] [--vr_post_process_threshold VR_POST_PROCESS_THRESHOLD] [--demucs_segment_size DEMUCS_SEGMENT_SIZE] [--demucs_shifts DEMUCS_SHIFTS]
-                       [--demucs_overlap DEMUCS_OVERLAP] [--demucs_segments_enabled DEMUCS_SEGMENTS_ENABLED] [--mdxc_segment_size MDXC_SEGMENT_SIZE] [--mdxc_override_model_segment_size]
-                       [--mdxc_overlap MDXC_OVERLAP] [--mdxc_batch_size MDXC_BATCH_SIZE] [--mdxc_pitch_shift MDXC_PITCH_SHIFT]
-                       [audio_file]
+### 命令行选项翻译与说明
 
-Separate audio file into different stems.
+`audio-separator` 是用于将音频文件分离成不同音轨的工具。以下是其命令行选项及其对应的中文翻译和说明：
 
-positional arguments:
-  audio_file                                             The audio file path to separate, in any common format.
+#### 基本参数
 
-options:
-  -h, --help                                             show this help message and exit
+- `audio_file`：要分离的音频文件路径，支持任何常见格式。
 
-Info and Debugging:
-  -v, --version                                          Show the program's version number and exit.
-  -d, --debug                                            Enable debug logging, equivalent to --log_level=debug
-  -e, --env_info                                         Print environment information and exit.
-  -l, --list_models                                      List all supported models and exit.
-  --log_level LOG_LEVEL                                  Log level, e.g. info, debug, warning (default: info).
+#### 信息和调试
 
-Separation I/O Params:
-  -m MODEL_FILENAME, --model_filename MODEL_FILENAME     model to use for separation (default: UVR-MDX-NET-Inst_HQ_3.onnx). Example: -m 2_HP-UVR.pth
-  --output_format OUTPUT_FORMAT                          output format for separated files, any common format (default: FLAC). Example: --output_format=MP3
-  --output_dir OUTPUT_DIR                                directory to write output files (default: <current dir>). Example: --output_dir=/app/separated
-  --model_file_dir MODEL_FILE_DIR                        model files directory (default: /tmp/audio-separator-models/). Example: --model_file_dir=/app/models
+- `-h, --help`：显示帮助信息并退出。
+- `-v, --version`：显示程序的版本号并退出。
+- `-d, --debug`：启用调试日志，相当于 `--log_level=debug`。
+- `-e, --env_info`：打印环境信息并退出。
+- `-l, --list_models`：列出所有支持的模型并退出。
+- `--log_level LOG_LEVEL`：设置日志级别，例如 info, debug, warning（默认：info）。
 
-Common Separation Parameters:
-  --invert_spect                                         invert secondary stem using spectogram (default: False). Example: --invert_spect
-  --normalization NORMALIZATION                          value by which to multiply the amplitude of the output files (default: 0.9). Example: --normalization=0.7
-  --single_stem SINGLE_STEM                              output only single stem, e.g. Instrumental, Vocals, Drums, Bass, Guitar, Piano, Other. Example: --single_stem=Instrumental
-  --sample_rate SAMPLE_RATE                              set the sample rate of the output audio (default: 44100). Example: --sample_rate=44100
+#### 分离输入输出参数
 
-MDX Architecture Parameters:
-  --mdx_segment_size MDX_SEGMENT_SIZE                    larger consumes more resources, but may give better results (default: 256). Example: --mdx_segment_size=256
-  --mdx_overlap MDX_OVERLAP                              amount of overlap between prediction windows, 0.001-0.999. higher is better but slower (default: 0.25). Example: --mdx_overlap=0.25
-  --mdx_batch_size MDX_BATCH_SIZE                        larger consumes more RAM but may process slightly faster (default: 1). Example: --mdx_batch_size=4
-  --mdx_hop_length MDX_HOP_LENGTH                        usually called stride in neural networks; only change if you know what you're doing (default: 1024). Example: --mdx_hop_length=1024
-  --mdx_enable_denoise                                   enable denoising after separation (default: False). Example: --mdx_enable_denoise
+- `-m MODEL_FILENAME, --model_filename MODEL_FILENAME`：用于分离的模型文件名（默认：UVR-MDX-NET-Inst_HQ_3.onnx）。
+- `--output_format OUTPUT_FORMAT`：分离文件的输出格式，支持任何常见格式（默认：FLAC）。
+- `--output_dir OUTPUT_DIR`：写入输出文件的目录（默认：当前目录）。
+- `--model_file_dir MODEL_FILE_DIR`：模型文件目录（默认：/tmp/audio-separator-models/）。
 
-VR Architecture Parameters:
-  --vr_batch_size VR_BATCH_SIZE                          number of "batches" to process at a time. higher = more RAM, slightly faster processing (default: 4). Example: --vr_batch_size=16
-  --vr_window_size VR_WINDOW_SIZE                        balance quality and speed. 1024 = fast but lower, 320 = slower but better quality. (default: 512). Example: --vr_window_size=320
-  --vr_aggression VR_AGGRESSION                          intensity of primary stem extraction, -100 - 100. typically 5 for vocals & instrumentals (default: 5). Example: --vr_aggression=2
-  --vr_enable_tta                                        enable Test-Time-Augmentation; slow but improves quality (default: False). Example: --vr_enable_tta
-  --vr_high_end_process                                  mirror the missing frequency range of the output (default: False). Example: --vr_high_end_process
-  --vr_enable_post_process                               identify leftover artifacts within vocal output; may improve separation for some songs (default: False). Example: --vr_enable_post_process
-  --vr_post_process_threshold VR_POST_PROCESS_THRESHOLD  threshold for post_process feature: 0.1-0.3 (default: 0.2). Example: --vr_post_process_threshold=0.1
+#### 常见分离参数
 
-Demucs Architecture Parameters:
-  --demucs_segment_size DEMUCS_SEGMENT_SIZE              size of segments into which the audio is split, 1-100. higher = slower but better quality (default: Default). Example: --demucs_segment_size=256
-  --demucs_shifts DEMUCS_SHIFTS                          number of predictions with random shifts, higher = slower but better quality (default: 2). Example: --demucs_shifts=4
-  --demucs_overlap DEMUCS_OVERLAP                        overlap between prediction windows, 0.001-0.999. higher = slower but better quality (default: 0.25). Example: --demucs_overlap=0.25
-  --demucs_segments_enabled DEMUCS_SEGMENTS_ENABLED      enable segment-wise processing (default: True). Example: --demucs_segments_enabled=False
+- `--invert_spect`：使用频谱图反转次要音轨（默认：False）。
+- `--normalization NORMALIZATION`：设置输出文件的幅度归一化值（默认：0.9）。
+- `--single_stem SINGLE_STEM`：只输出单个音轨，如 Instrumental, Vocals, Drums, Bass, Guitar, Piano, Other。
+- `--sample_rate SAMPLE_RATE`：设置输出音频的采样率（默认：44100）。
 
-MDXC Architecture Parameters:
-  --mdxc_segment_size MDXC_SEGMENT_SIZE                  larger consumes more resources, but may give better results (default: 256). Example: --mdxc_segment_size=256
-  --mdxc_override_model_segment_size                     override model default segment size instead of using the model default value. Example: --mdxc_override_model_segment_size
-  --mdxc_overlap MDXC_OVERLAP                            amount of overlap between prediction windows, 2-50. higher is better but slower (default: 8). Example: --mdxc_overlap=8
-  --mdxc_batch_size MDXC_BATCH_SIZE                      larger consumes more RAM but may process slightly faster (default: 1). Example: --mdxc_batch_size=4
-  --mdxc_pitch_shift MDXC_PITCH_SHIFT                    shift audio pitch by a number of semitones while processing. may improve output for deep/high vocals. (default: 0). Example: --mdxc_pitch_shift=2
+#### MDX 架构参数
+
+- `--mdx_segment_size MDX_SEGMENT_SIZE`：分段大小，越大占用资源越多，但效果可能更好（默认：256）。
+- `--mdx_overlap MDX_OVERLAP`：预测窗口的重叠量，0.001-0.999。越高效果越好，但速度越慢（默认：0.25）。
+- `--mdx_batch_size MDX_BATCH_SIZE`：批处理大小，越大占用更多内存，但处理速度可能稍快（默认：1）。
+- `--mdx_hop_length MDX_HOP_LENGTH`：通常称为神经网络中的步长；仅在了解其作用的情况下更改（默认：1024）。
+- `--mdx_enable_denoise`：分离后启用降噪（默认：False）。
+
+#### VR 架构参数
+
+- `--vr_batch_size VR_BATCH_SIZE`：一次处理的“批次”数量。越高占用更多内存，但处理速度稍快（默认：4）。
+- `--vr_window_size VR_WINDOW_SIZE`：平衡质量和速度。1024 = 快但质量较低，320 = 慢但质量较高（默认：512）。
+- `--vr_aggression VR_AGGRESSION`：提取主要音轨的强度，-100 - 100。通常为 5（默认：5）。
+- `--vr_enable_tta`：启用测试时间增强；速度慢但提高质量（默认：False）。
+- `--vr_high_end_process`：镜像输出的缺失频率范围（默认：False）。
+- `--vr_enable_post_process`：识别人声输出中的剩余伪影；可能改善某些歌曲的分离效果（默认：False）。
+- `--vr_post_process_threshold VR_POST_PROCESS_THRESHOLD`：后处理功能的阈值：0.1-0.3（默认：0.2）。
+
+#### Demucs 架构参数
+
+- `--demucs_segment_size DEMUCS_SEGMENT_SIZE`：音频分割的段大小，1-100。越高速度越慢但质量更好（默认：默认）。
+- `--demucs_shifts DEMUCS_SHIFTS`：带随机移位的预测次数，越高速度越慢但质量更好（默认：2）。
+- `--demucs_overlap DEMUCS_OVERLAP`：预测窗口的重叠量，0.001-0.999。越高速度越慢但质量更好（默认：0.25）。
+- `--demucs_segments_enabled DEMUCS_SEGMENTS_ENABLED`：启用分段处理（默认：True）。
+
+#### MDXC 架构参数
+
+- `--mdxc_segment_size MDXC_SEGMENT_SIZE`：分段大小，越大占用资源越多，但效果可能更好（默认：256）。
+- `--mdxc_override_model_segment_size`：覆盖模型默认分段大小，而不是使用模型默认值。
+- `--mdxc_overlap MDXC_OVERLAP`：预测窗口的重叠量，2-50。越高效果越好但速度越慢（默认：8）。
+- `--mdxc_batch_size MDXC_BATCH_SIZE`：批处理大小，越大占用更多内存但处理速度可能稍快（默认：1）。
+- `--mdxc_pitch_shift MDXC_PITCH_SHIFT`：处理时将音频音调调整一定数量的半音。可能改善低音/高音人声的输出（默认：0）。
+
+以上是 `audio-separator` 命令行工具的主要参数及其说明。使用这些参数，可以更好地控制音频分离的过程和结果。
 ```
 
 ### As a Dependency in a Python Project
