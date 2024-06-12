@@ -1,24 +1,19 @@
 
-
 <div align="center">
 
-  <h1># 音频分离器 🎶</h1>
-  [![PyPI 版本](https://badge.fury.io/py/audio-separator.svg)](https://badge.fury.io/py/audio-separator)
-  [![Conda 版本](https://img.shields.io/conda/vn/conda-forge/audio-separator.svg)](https://anaconda.org/conda-forge/audio-separator)
-  [![Docker 下载](https://img.shields.io/docker/pulls/beveradb/audio-separator.svg)](https://hub.docker.com/r/beveradb/audio-separator/tags)
-  [![代码覆盖率](https://codecov.io/gh/karaokenerds/python-audio-separator/graph/badge.svg?token=N7YK4ET5JP)](https://codecov.io/gh/karaokenerds/python-audio-separator)
+<h1>音频分离器 🎶</h1>
+<br>
 
+[![PyPI 版本](https://badge.fury.io/py/audio-separator.svg)](https://badge.fury.io/py/audio-separator)
+[![Conda 版本](https://img.shields.io/conda/vn/conda-forge/audio-separator.svg)](https://anaconda.org/conda-forge/audio-separator)
+[![Docker 下载](https://img.shields.io/docker/pulls/beveradb/audio-separator.svg)](https://hub.docker.com/r/beveradb/audio-separator/tags)
+[![代码覆盖率](https://codecov.io/gh/karaokenerds/python-audio-separator/graph/badge.svg?token=N7YK4ET5JP)](https://codecov.io/gh/karaokenerds/python-audio-separator)
 
-  摘要：使用音频分离器可以从命令行或作为你自己的 Python 项目中的依赖项，轻松地进行音频分离，利用 MDX-Net、VR Arch、Demucs 和 MDXC 模型，这些模型都可以在 UVR 项目中找到。
+**中文简体** | [**English**](./README_EN.md) 
 
-音频分离器是一个 Python 包，允许你将音频文件分离成各种音轨，使用的是 @Anjok07 为 UVR 项目训练的模型（<https://github.com/Anjok07/ultimatevocalremovergui>）。
-
-最简单（可能也是最常用）的用例是将音频文件分离成两个音轨：伴奏和人声，这对制作卡拉 OK 视频非常有用！然而，UVR 中可用的模型可以将音频分离成更多的音轨，如鼓、贝斯、钢琴和吉他，还可以执行其他音频处理任务，如降噪或去除回声/混响。
-
-  **中文简体** | [**English**](./README_EN.md) 
 </div>
 
-
+---
 
 
 ## 功能
