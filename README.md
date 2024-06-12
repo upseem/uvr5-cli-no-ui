@@ -98,6 +98,7 @@ Docker: `beveradb/audio-separator`
 - `pip cache purge`
 - `pip install --force-reinstall torch torchvision torchaudio`
 - `pip install --force-reinstall onnxruntime-gpu`
+- `pip install "audio-separator[gpu]"`
 
 我通常推荐使用此处向导推荐的命令安装最新版本的 PyTorch：
 <https://pytorch.org/get-started/locally/>
@@ -122,7 +123,7 @@ Docker: `beveradb/audio-separator`
 你可以通过命令行使用音频分离器，例如：
 
 ```sh
-audio-separator /path/to/your/input/audio.wav --model_filename UVR-MDX-NET-Inst_HQ_3.onnx
+audio-separator audio.wav --model_filename UVR-MDX-NET-Inst_HQ_3.onnx
 ```
 
 此命令将下载指定的模型文件，处理 `audio.wav` 输入音频，并在当前目录中生成两个新文件，一个包含人声，一个包含伴奏。
