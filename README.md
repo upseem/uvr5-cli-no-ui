@@ -24,97 +24,23 @@
 - 支持命令行接口，便于在脚本和批处理任务中使用。
 - 提供 Python API，便于集成到其他项目中。
 
-## 安装 🛠️
-
-### 🐳 Docker
-
-如果你可以使用 Docker，则无需安装任何东西——可以直接使用发布在 [Docker Hub](https://hub.docker.com/r/beveradb/audio-separator/tags) 上的镜像，支持 GPU（CUDA）和 CPU 推理，适用于 `amd64` 和 `arm64` 平台。
-
-你可能需要将包含要分离文件的文件夹挂载为卷，这样也可以作为输出文件夹。
-
-例如，如果你的当前目录下有文件 `input.wav`，可以按如下所示执行 `audio-separator`（请参阅[使用](#usage-)部分了解更多详情）：
-
-```sh
-docker run -it -v `pwd`:/workdir beveradb/audio-separator input.wav
-```
-
-如果你使用的是带 GPU 的机器，应该使用 GPU 专用镜像并将 GPU 设备传递给容器，如下所示：
-
-```sh
-docker run -it --gpus all -v `pwd`:/workdir beveradb/audio-separator:gpu input.wav
-```
-
-如果 GPU 未被检测到，请确保你的 Docker 运行环境正确传递 GPU，有[各种指南](https://www.celantur.com/blog/run-cuda-in-docker-on-linux/)可以帮助解决这个问题。
-
-### 🎮 Nvidia GPU with CUDA 或 🧪 Google Colab
-
-**支持的 CUDA 版本**：11.8 和 12.2
-
-💬 如果配置成功，在运行 `audio-separator --env_info` 时应该看到如下日志消息：
- `ONNXruntime has CUDAExecutionProvider available, enabling acceleration`
-
-Conda: `conda install pytorch=*=*cuda* onnxruntime=*=*cuda* audio-separator -c pytorch -c conda-forge`
-
-Pip: `pip install "audio-separator[gpu]"`
-
-Docker: `beveradb/audio-separator:gpu`
-
-###  Apple Silicon, macOS Sonoma+ with M1 或更新的 CPU（CoreML 加速）
-
-💬 如果配置成功，在运行 `audio-separator --env_info` 时应该看到如下日志消息：
- `ONNXruntime has CoreMLExecutionProvider available, enabling acceleration`
-
-Pip: `pip install "audio-separator[cpu]"`
-
-### 🐢 无硬件加速，仅使用 CPU
-
-Conda: `conda install audio-separator-c pytorch -c conda-forge`
-
-Pip: `pip install "audio-separator[cpu]"`
-
-Docker: `beveradb/audio-separator`
-
-### 🎥 FFmpeg 依赖
-
-💬 测试 `audio-separator` 是否成功配置以使用 FFmpeg，可以运行 `audio-separator --env_info`。日志将显示 `FFmpeg installed`。
-
-如果你使用 `conda` 或 `docker` 安装 `audio-separator`，FFmpeg 应该已经可用。
-
-你可能需要单独安装 FFmpeg。它应该易于在大多数平台上安装，例如：
-
-🐧 Debian/Ubuntu: `apt-get update; apt-get install -y ffmpeg`
-
- macOS:`brew update; brew install ffmpeg`
-
 ## 使用 GPU / CUDA 的具体安装步骤（通过 Pip）
 
-理论上，只需要用 `[gpu]` 额外选项安装 `audio-separator` 就可以使用 GPU。
 
-然而，有时让 PyTorch 和 ONNX Runtime 支持 CUDA 可能有点棘手，可能不会那么容易。
+cuda
 
-你可能需要直接重新安装这两个包，让 pip 计算适合你平台的正确版本，例如：
+- conda install pytorch==2.3.0 torchvision==0.18.0 torchaudio==2.3.0 pytorch-cuda=11.8 -c pytorch -c nvidia
 
-- `pip uninstall torch onnxruntime`
-- `pip cache purge`
-- `pip install --force-reinstall torch torchvision torchaudio`
+或者
+
+- `pip install torch==2.3.0 torchvision==0.18.0 torchaudio==2.3.0 --index-url https://download.pytorch.org/whl/cu118`
+
 - `pip install --force-reinstall onnxruntime-gpu`
 - `pip install "audio-separator[gpu]"`
+- `apt-get update; apt-get install -y ffmpeg`
 
-我通常推荐使用此处向导推荐的命令安装最新版本的 PyTorch：
-<https://pytorch.org/get-started/locally/>
-
-### 可能需要多个 CUDA 库版本
-
-根据你的 CUDA 版本和环境，ONNX Runtime 使用 GPU 时可能需要安装特定版本的 CUDA 库。
-
-🧪 例如，Google Colab 现在默认使用 CUDA 12，但 ONNX Runtime 仍需要 CUDA 11 库。
-
-如果你在运行 `audio-separator` 时看到 `Failed to load library` 或 `cannot open shared object file` 错误，这可能就是问题所在。
-
-你可以同时安装 CUDA 11 库和 CUDA 12，如下所示：
-`apt update; apt install nvidia-cuda-toolkit`
-
-> 注意：如果有人知道如何让这个过程更简洁，以便我们可以在不同平台上支持硬件加速的特定依赖项，而无需为每个平台单独安装过程，请告诉我或提交 PR！
+ONNX Runtime 仍需要 CUDA 11 库。
+所以cuda安装11.8版本
 
 ## 使用 🚀
 
