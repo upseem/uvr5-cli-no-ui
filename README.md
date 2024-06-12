@@ -37,7 +37,7 @@ pip install --force-reinstall onnxruntime-gpu
 pip install "audio-separator[gpu]"
 apt-get update; apt-get install -y ffmpeg
 ```
-其他版本pytorch 请访问 ![pytorch版本下载页](https://pytorch.org/get-started/previous-versions/)
+其他版本pytorch 请访问 [pytorch版本下载页](https://pytorch.org/get-started/previous-versions/)
 ONNX Runtime 仍需要 CUDA 11 库。
 所以cuda安装11.8版本
 
