@@ -9,7 +9,7 @@
 [![Docker 下载](https://img.shields.io/docker/pulls/beveradb/audio-separator.svg)](https://hub.docker.com/r/beveradb/audio-separator/tags)
 [![代码覆盖率](https://codecov.io/gh/karaokenerds/python-audio-separator/graph/badge.svg?token=N7YK4ET5JP)](https://codecov.io/gh/karaokenerds/python-audio-separator)
 
-**中文简体** | [**English**](./README_EN.md) 
+**中文简体** | [**English**](https://github.com/upseem/uvr5-cli-no-ui) 
 
 </div>
 
