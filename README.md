@@ -1,6 +1,8 @@
+简体中文（本页） | [English](./README_EN.md)
+
 <div align="center">
  
-# 🎶 Audio Separator 🎶
+# 🎶 音频分离器（Audio Separator） 🎶
 
 [![PyPI version](https://badge.fury.io/py/audio-separator.svg)](https://badge.fury.io/py/audio-separator)
 [![Conda Version](https://img.shields.io/conda/vn/conda-forge/audio-separator.svg)](https://anaconda.org/conda-forge/audio-separator)
@@ -11,235 +13,229 @@
 
 </div>
 
-**Summary:** Easy to use audio stem separation from the command line or as a dependency in your own Python project, using the amazing MDX-Net, VR Arch, Demucs and MDXC models available in UVR by @Anjok07 & @aufr33.
+**摘要：** 这是一个易用的音频声部分离工具，既可以通过命令行使用，也可以作为 Python 依赖集成到你的项目中。它基于 UVR 社区（@Anjok07 & @aufr33）提供的优秀模型：MDX‑Net、VR 架构、Demucs 和 MDXC。
 
-Audio Separator is a Python package that allows you to separate an audio file into various stems, using models trained by @Anjok07 for use with [Ultimate Vocal Remover](https://github.com/Anjok07/ultimatevocalremovergui).
+Audio Separator 是一个 Python 包，可将音频文件分离为多个声部（stems）。所用模型由 @Anjok07 为 [Ultimate Vocal Remover](https://github.com/Anjok07/ultimatevocalremovergui) 训练并提供。
 
-The simplest (and probably most used) use case for this package is to separate an audio file into two stems, Instrumental and Vocals, which can be very useful for producing karaoke videos! However, the models available in UVR can separate audio into many more stems, such as Drums, Bass, Piano, and Guitar, and perform other audio processing tasks, such as denoising or removing echo/reverb.
+最常见的用法是将音频分成两路：伴奏（Instrumental）与人声（Vocals），对制作卡拉 OK、混音等非常有用。除此之外，UVR 中的模型还能分离鼓、贝斯、钢琴、吉他等更多声部，并支持诸如去噪、去回声/混响等音频处理任务。
 
 <details>
-<summary align="center"><b>Table of Contents</div></b></summary>
+<summary align="center"><b>目录</b></summary>
 
-- [🎶 Audio Separator 🎶](#-audio-separator-)
-  - [Features](#features)
-  - [Installation 🛠️](#installation-%EF%B8%8F)
-    - [🐳 Docker](#-docker)
-    - [🎮 Nvidia GPU with CUDA or 🧪 Google Colab](#-nvidia-gpu-with-cuda-or--google-colab)
-    - [ Apple Silicon, macOS Sonoma+ with M1 or newer CPU (CoreML acceleration)](#-apple-silicon-macos-sonoma-with-m1-or-newer-cpu-coreml-acceleration)
-    - [🐢 No hardware acceleration, CPU only](#-no-hardware-acceleration-cpu-only)
-    - [🎥 FFmpeg dependency](#-ffmpeg-dependency)
-  - [GPU / CUDA specific installation steps with Pip](#gpu--cuda-specific-installation-steps-with-pip)
-    - [Multiple CUDA library versions may be needed](#multiple-cuda-library-versions-may-be-needed)
-  - [Usage 🚀](#usage-)
-    - [Command Line Interface (CLI)](#command-line-interface-cli)
-    - [Listing and Filtering Available Models](#listing-and-filtering-available-models)
-      - [Filtering Models](#filtering-models)
-      - [Limiting Results](#limiting-results)
-      - [JSON Output](#json-output)
-    - [Full command-line interface options](#full-command-line-interface-options)
-    - [As a Dependency in a Python Project](#as-a-dependency-in-a-python-project)
-      - [Batch processing and processing with multiple models](#batch-processing-and-processing-with-multiple-models)
-      - [Renaming Stems](#renaming-stems)
-  - [Parameters for the Separator class](#parameters-for-the-separator-class)
-  - [Remote API Usage 🌐](#remote-api-usage-)
-  - [Requirements 📋](#requirements-)
-  - [Developing Locally](#developing-locally)
-    - [Prerequisites](#prerequisites)
-    - [Clone the Repository](#clone-the-repository)
-    - [Create and activate the Conda Environment](#create-and-activate-the-conda-environment)
-    - [Install Dependencies](#install-dependencies)
-    - [Running the Command-Line Interface Locally](#running-the-command-line-interface-locally)
-    - [Deactivate the Virtual Environment](#deactivate-the-virtual-environment)
-    - [Building the Package](#building-the-package)
-  - [Contributing 🤝](#contributing-)
-  - [License 📄](#license-)
-  - [Credits 🙏](#credits-)
-  - [Contact 💌](#contact-)
-  - [Thanks to all contributors for their efforts](#thanks-to-all-contributors-for-their-efforts)
+- 🎶 音频分离器（本页）
+  - 功能
+  - 安装 🛠️
+    - 🐳 Docker
+    - 🎮 Nvidia GPU（CUDA）或 🧪 Google Colab
+    -  Apple Silicon（CoreML 加速）
+    - 🐢 仅 CPU（无硬件加速）
+    - 🎥 FFmpeg 依赖
+  - 使用方法 🚀
+    - 命令行（CLI）
+    - 列出与筛选可用模型
+      - 按声部分类筛选
+      - 限制结果数量
+      - 输出 JSON
+    - 完整命令行参数
+    - 作为 Python 依赖使用
+      - 批处理与多模型处理
+      - 重命名输出声部
+  - Separator 类参数
+  - 远程 API 用法 🌐
+  - 环境要求 📋
+  - 本地开发
+    - 先决条件
+    - 克隆仓库
+    - 创建与激活 Conda 环境
+    - 安装依赖
+    - 在本地运行 CLI
+    - 退出虚拟环境
+    - 构建发行包
+  - 贡献 🤝
+  - 许可 📄
+  - 致谢 🙏
+  - 联系方式 💌
+  - 特别感谢所有贡献者
 </details>
 
 ---
 
-## Features
+## 功能
 
-- Separate audio into multiple stems, e.g. instrumental and vocals.
-- Supports all common audio formats (WAV, MP3, FLAC, M4A, etc.)
-- Ability to inference using a pre-trained model in PTH or ONNX format.
-- CLI support for easy use in scripts and batch processing.
-- Python API for integration into other projects.
+- 将音频分离为多个声部（例如伴奏与人声）。
+- 支持所有常见音频格式（WAV、MP3、FLAC、M4A 等）。
+- 支持使用 PTH 或 ONNX 格式的预训练模型进行推理。
+- 提供 CLI，便于脚本与批处理场景。
+- 提供 Python API，便于在其他项目中集成。
 
-## Installation 🛠️
+## 安装 🛠️
 
 ### 🐳 Docker
 
-If you're able to use docker, you don't actually need to _install_ anything - there are [images published on Docker Hub](https://hub.docker.com/r/beveradb/audio-separator/tags) for GPU (CUDA) and CPU inferencing, for both `amd64` and `arm64` platforms.
+如果可以使用 Docker，实际上无需在本机“安装”任何依赖——我们在 Docker Hub 提供了适用于 GPU（CUDA）与 CPU 推理的镜像，同时支持 `amd64` 与 `arm64` 平台：
 
-You probably want to volume-mount a folder containing whatever file you want to separate, which can then also be used as the output folder.
-
-For instance, if your current directory has the file `input.wav`, you could execute `audio-separator` as shown below (see [usage](#usage-) section for more details):
+建议把包含待分离音频的文件夹以卷的方式挂载，这样也可以作为输出目录。例如当前目录有 `input.wav`，可运行（更多示例见下方“用法”部分）：
 
 ```sh
 docker run -it -v `pwd`:/workdir beveradb/audio-separator input.wav
 ```
 
-If you're using a machine with a GPU, you'll want to use the GPU specific image and pass in the GPU device to the container, like this:
+若使用带 GPU 的机器，请使用 GPU 专用镜像并把 GPU 设备传入容器：
 
 ```sh
 docker run -it --gpus all -v `pwd`:/workdir beveradb/audio-separator:gpu input.wav
 ```
 
-If the GPU isn't being detected, make sure your docker runtime environment is passing through the GPU correctly - there are [various guides](https://www.celantur.com/blog/run-cuda-in-docker-on-linux/) online to help with that.
+若容器中未能检测到 GPU，请检查 Docker 运行时是否正确透传 GPU（可参考各类指南）。
 
-### 🎮 Nvidia GPU with CUDA or 🧪 Google Colab
+### 🎮 Nvidia GPU（CUDA）或 🧪 Google Colab
 
-**Supported CUDA Versions:** 11.8 and 12.2
+支持的 CUDA 版本：11.8 与 12.2
 
-💬 If successfully configured, you should see this log message when running `audio-separator --env_info`:
- `ONNXruntime has CUDAExecutionProvider available, enabling acceleration`
+成功配置后，运行 `audio-separator --env_info` 应看到：
+`ONNXruntime has CUDAExecutionProvider available, enabling acceleration`
 
-Conda:
+Conda：
 ```sh
 conda install pytorch=*=*cuda* onnxruntime=*=*cuda* audio-separator -c pytorch -c conda-forge
 ```
 
-Pip:
+Pip：
 ```sh
 pip install "audio-separator[gpu]"
 ```
 
-Docker:
+Docker：
 ```sh
 beveradb/audio-separator:gpu
 ```
 
-###  Apple Silicon, macOS Sonoma+ with M1 or newer CPU (CoreML acceleration)
+###  Apple Silicon，macOS Sonoma+（M1 或更新机型，CoreML 加速）
 
-💬 If successfully configured, you should see this log message when running `audio-separator --env_info`:
- `ONNXruntime has CoreMLExecutionProvider available, enabling acceleration`
+成功配置后，运行 `audio-separator --env_info` 应看到：
+`ONNXruntime has CoreMLExecutionProvider available, enabling acceleration`
 
-Pip:
+Pip：
 ```sh
 pip install "audio-separator[cpu]"
 ```
 
-### 🐢 No hardware acceleration, CPU only
+### 🐢 仅 CPU（无硬件加速）
 
-Conda:
+Conda：
 ```sh
 conda install audio-separator-c pytorch -c conda-forge
 ```
 
-Pip:
+Pip：
 ```sh
 pip install "audio-separator[cpu]"
 ```
 
-Docker:
+Docker：
 ```sh
 beveradb/audio-separator
 ```
 
-### 🎥 FFmpeg dependency
+### 🎥 FFmpeg 依赖
 
-💬 To test if `audio-separator` has been successfully configured to use FFmpeg, run `audio-separator --env_info`. The log will show `FFmpeg installed`.
+运行 `audio-separator --env_info` 可验证是否已配置 FFmpeg，日志应显示 `FFmpeg installed`。
 
-If you installed `audio-separator` using `conda` or `docker`, FFmpeg should already be available in your environment.
+若通过 conda 或 docker 安装，FFmpeg 通常已包含。否则需单独安装，例如：
 
-You may need to separately install FFmpeg. It should be easy to install on most platforms, e.g.:
-
-🐧 Debian/Ubuntu:
+🐧 Debian/Ubuntu：
 ```sh
 apt-get update; apt-get install -y ffmpeg
 ```
 
- macOS:
+ macOS：
 ```sh
 brew update; brew install ffmpeg
 ```
 
-## GPU / CUDA specific installation steps with Pip
+## 通过 Pip 在 GPU / CUDA 环境下的额外注意
 
-In theory, all you should need to do to get `audio-separator` working with a GPU is install it with the `[gpu]` extra as above.
+理论上只需用 `[gpu]` 附加项安装即可，但在某些环境中，让 PyTorch 与 ONNX Runtime 同时启用 CUDA 可能会遇到兼容问题。
 
-However, sometimes getting both PyTorch and ONNX Runtime working with CUDA support can be a bit tricky so it may not work that easily.
-
-You may need to reinstall both packages directly, allowing pip to calculate the right versions for your platform, for example:
+可能需要手动重新安装，让 pip 为你的平台重新计算合适的版本，例如：
 
 - `pip uninstall torch onnxruntime`
 - `pip cache purge`
 - `pip install --force-reinstall torch torchvision torchaudio`
 - `pip install --force-reinstall onnxruntime-gpu`
 
-I generally recommend installing the latest version of PyTorch for your environment using the command recommended by the wizard here:
+推荐使用 PyTorch 官方“本地安装”向导选择适合你环境的安装命令：
 <https://pytorch.org/get-started/locally/>
 
-### Multiple CUDA library versions may be needed
+### 可能需要同时安装多个 CUDA 库版本
 
-Depending on your CUDA version and environment, you may need to install specific version(s) of CUDA libraries for ONNX Runtime to use your GPU.
+根据你的 CUDA 版本与运行环境，ONNX Runtime 可能需要不同版本的 CUDA 库。例如 Google Colab 现在默认使用 CUDA 12，但 ONNX Runtime 仍可能需要 CUDA 11 的库。
 
-🧪 Google Colab, for example, now uses CUDA 12 by default, but ONNX Runtime still needs CUDA 11 libraries to work.
+如果运行 `audio-separator` 出现 `Failed to load library` 或 `cannot open shared object file` 等错误，很可能是此问题。
 
-If you see the error `Failed to load library` or `cannot open shared object file` when you run `audio-separator`, this is likely the issue.
-
-You can install the CUDA 11 libraries _alongside_ CUDA 12 like so:
+你可以在保留 CUDA 12 的同时安装 CUDA 11 的库，例如：
 ```sh
 apt update; apt install nvidia-cuda-toolkit
 ```
 
-If you encounter the following messages when running on Google Colab or in another environment:
+如果在 Colab 或其它环境看到如下提示：
 ```
-[E:onnxruntime:Default, provider_bridge_ort.cc:1862 TryGetProviderInfo_CUDA] /onnxruntime_src/onnxruntime/core/session/provider_bridge_ort.cc:1539 onnxruntime::Provider& onnxruntime::ProviderLibrary::Get() [ONNXRuntimeError] : 1 : FAIL : Failed to load library libonnxruntime_providers_cuda.so with error: libcudnn_adv.so.9: cannot open shared object file: No such file or directory
+[E:onnxruntime:Default, provider_bridge_ort.cc:1862 TryGetProviderInfo_CUDA] ... Failed to load library libonnxruntime_providers_cuda.so ... libcudnn_adv.so.9 ... No such file or directory
 
-[W:onnxruntime:Default, onnxruntime_pybind_state.cc:993 CreateExecutionProviderInstance] Failed to create CUDAExecutionProvider. Require cuDNN 9.* and CUDA 12.*. Please install all dependencies as mentioned in the GPU requirements page (https://onnxruntime.ai/docs/execution-providers/CUDA-ExecutionProvider.html#requirements), make sure they're in the PATH, and that your GPU is supported.
+[W:onnxruntime:Default, onnxruntime_pybind_state.cc:993 CreateExecutionProviderInstance] Failed to create CUDAExecutionProvider. Require cuDNN 9.* and CUDA 12.*. ...
 ```
-You can resolve this by running the following command:
+可尝试：
 ```sh
 python -m pip install ort-nightly-gpu --index-url=https://aiinfra.pkgs.visualstudio.com/PublicPackages/_packaging/ort-cuda-12-nightly/pypi/simple/
 ```
 
-> Note: if anyone knows how to make this cleaner so we can support both different platform-specific dependencies for hardware acceleration without a separate installation process for each, please let me know or raise a PR!
+> 备注：如果你知道更优雅的跨不同平台自动依赖方案，欢迎交流或提 PR！
 
-## Usage 🚀
+## 用法 🚀
 
-### Command Line Interface (CLI)
+### 命令行（CLI）
 
-You can use Audio Separator via the command line, for example:
+示例：
 
 ```sh
 audio-separator /path/to/your/input/audio.wav --model_filename model_bs_roformer_ep_317_sdr_12.9755.ckpt
 ```
 
-This command will download the specified model file, process the `audio.wav` input audio and generate two new files in the current directory, one containing vocals and one containing instrumental.
+该命令会自动下载指定模型，处理输入音频 `audio.wav`，并在当前目录生成两份新文件：一份为人声（Vocals），另一份为伴奏（Instrumental）。
 
-**Note:** You do not need to download any files yourself - audio-separator does that automatically for you!
+**注意：** 无需手动下载模型文件，首次使用会自动下载到 `--model_file_dir`（默认：`/tmp/audio-separator-models/`）。
 
-To see a list of supported models, run `audio-separator --list_models`
-
-Any file listed in the list models output can be specified (with file extension) with the model_filename parameter (e.g. `--model_filename UVR_MDXNET_KARA_2.onnx`) and it will be automatically downloaded to the `--model_file_dir` (default: `/tmp/audio-separator-models/`) folder on first usage.
-
-### Listing and Filtering Available Models
-
-You can view all available models using the `--list_models` (or `-l`) flag:
+列出支持的模型：
 
 ```sh
 audio-separator --list_models
 ```
 
-The output shows a table with the following columns:
-- Model Filename: The filename to use with `--model_filename`
-- Arch: The model architecture (MDX, MDXC, Demucs, etc.)
-- Output Stems (SDR): The stems this model can separate, with Signal-to-Distortion Ratio scores where available
-- Friendly Name: A human-readable name describing the model
+`--list_models` 的输出中列出的任意文件（含扩展名）都可直接通过 `--model_filename` 指定（例如 `--model_filename UVR_MDXNET_KARA_2.onnx`），程序会在首次使用时自动下载到模型目录。
 
-#### Filtering Models
+### 列出与筛选可用模型
 
-You can filter and sort the model list by stem type using `--list_filter`. For example, to find models that can separate drums:
+使用 `--list_models`（或 `-l`）查看所有可用模型：
+
+```sh
+audio-separator --list_models
+```
+
+输出包含如下列：
+- 模型文件名（用于 `--model_filename`）
+- 架构（MDX、MDXC、Demucs 等）
+- 可分离的声部（以及可用时的 SDR 分数）
+- 友好名称（描述性名称）
+
+#### 按声部分类筛选
+
+通过 `--list_filter` 按声部筛选并排序，例如查找可分离鼓声的模型：
 
 ```sh
 audio-separator -l --list_filter=drums
 ```
 
-Example output:
+示例输出：
 ```
 -----------------------------------------------------------------------------------------------------------------------------------
 Model Filename        Arch    Output Stems (SDR)                                            Friendly Name
@@ -250,15 +246,15 @@ htdemucs.yaml         Demucs  vocals (10.0), drums (9.4), bass (11.3), other    
 htdemucs_6s.yaml      Demucs  vocals (9.7), drums (8.5), bass (10.0), guitar, piano, other  Demucs v4: htdemucs_6s
 ```
 
-#### Limiting Results
+#### 限制结果数量
 
-You can limit the number of results shown using `--list_limit`. This is useful for finding the best performing models for a particular stem. For example, to see the top 5 vocal separation models:
+使用 `--list_limit` 限制显示的模型数量，例如仅查看人声分离效果前 5 的模型：
 
 ```sh
 audio-separator -l --list_filter=vocals --list_limit=5
 ```
 
-Example output:
+示例输出：
 ```
 --------------------------------------------------------------------------------------------------------------------------------------------------------------
 Model Filename                             Arch  Output Stems (SDR)                   Friendly Name
@@ -270,15 +266,15 @@ melband_roformer_big_beta4.ckpt            MDXC  vocals* (12.5), other          
 mel_band_roformer_kim_ft_unwa.ckpt         MDXC  vocals* (12.4), other                Roformer Model: MelBand Roformer Kim | FT by unwa
 ```
 
-#### JSON Output
+#### 输出 JSON
 
-For programmatic use, you can output the model list in JSON format:
+程序化使用时，可输出 JSON：
 
 ```sh
 audio-separator -l --list_format=json
 ```
 
-### Full command-line interface options
+### 完整命令行参数
 
 ```sh
 usage: audio-separator [-h] [-v] [-d] [-e] [-l] [--log_level LOG_LEVEL] [--list_filter LIST_FILTER] [--list_limit LIST_LIMIT] [--list_format {pretty,json}] [-m MODEL_FILENAME] [--output_format OUTPUT_FORMAT]
@@ -357,67 +353,129 @@ MDXC Architecture Parameters:
   --mdxc_pitch_shift MDXC_PITCH_SHIFT                    Shift audio pitch by a number of semitones while processing. May improve output for deep/high vocals. (default: 0). Example: --mdxc_pitch_shift=2
 ```
 
-### As a Dependency in a Python Project
+#### 中文说明（译）
 
-You can use Audio Separator in your own Python project. Here's a minimal example using the default two stem (Instrumental and Vocals) model:
+用途：
+- 将音频文件分离为不同声部（stems）。
+
+位置参数：
+- `audio_files`：要分离的音频文件路径或目录，支持常见格式。
+
+选项：
+- `-h, --help`：显示帮助并退出。
+
+信息与调试：
+- `-v, --version`：显示程序版本并退出。
+- `-d, --debug`：启用调试日志，相当于 `--log_level=debug`。
+- `-e, --env_info`：打印环境信息并退出。
+- `-l, --list_models`：列出所有支持的模型并退出；可搭配 `--list_filter` 过滤/排序，`--list_limit` 限制数量。
+- `--log_level LOG_LEVEL`：日志级别，例如 info、debug、warning（默认：info）。
+- `--list_filter LIST_FILTER`：按 name、filename 或任一声部（如 vocals、instrumental、drums）过滤/排序模型列表。
+- `--list_limit LIST_LIMIT`：限制显示的模型数量。
+- `--list_format {pretty,json}`：列表输出格式：`pretty` 表格形式；`json` 原始 JSON。
+
+分离 I/O 参数：
+- `-m, --model_filename MODEL_FILENAME`：用于分离的模型（默认：`model_bs_roformer_ep_317_sdr_12.9755.yaml`）。示例：`-m 2_HP-UVR.pth`。
+- `--output_format OUTPUT_FORMAT`：输出文件格式，任意常见格式（默认：FLAC）。示例：`--output_format=MP3`。
+- `--output_bitrate OUTPUT_BITRATE`：输出比特率，任意 ffmpeg 兼容值（默认：None）。示例：`--output_bitrate=320k`。
+- `--output_dir OUTPUT_DIR`：输出目录（默认：当前目录）。示例：`--output_dir=/app/separated`。
+- `--model_file_dir MODEL_FILE_DIR`：模型文件目录（默认：`/tmp/audio-separator-models/`）。示例：`--model_file_dir=/app/models`。
+- `--download_model_only`：仅下载指定模型，不执行分离。
+
+通用分离参数：
+- `--invert_spect`：使用频谱反相生成次级声部（默认：False）。
+- `--normalization NORMALIZATION`：输入输出音频最大峰值归一化（默认：0.9）。
+- `--amplification AMPLIFICATION`：最小峰值增益阈值（默认：0.0）。
+- `--single_stem SINGLE_STEM`：仅输出单一声部，如 Instrumental、Vocals、Drums、Bass、Guitar、Piano、Other。
+- `--sample_rate SAMPLE_RATE`：设置输出采样率（默认：44100）。
+- `--use_soundfile`：使用 soundfile 写出音频（默认：False）。
+- `--use_autocast`：启用 PyTorch autocast 以加速（默认：False；CPU 推理请勿使用）。
+- `--custom_output_names JSON`：为所有输出自定义文件名（JSON 格式）。示例：`'{"Vocals": "vocals_output", "Drums": "drums_output"}'`。
+
+MDX 架构参数：
+- `--mdx_segment_size`：分段大小，越大占用越多资源但可能更好（默认：256）。
+- `--mdx_overlap`：预测窗口重叠，0.001–0.999；越高越慢但更好（默认：0.25）。
+- `--mdx_batch_size`：批大小，越大占用更多内存但略快（默认：1）。
+- `--mdx_hop_length`：步长（通常称 stride），非必要不建议修改（默认：1024）。
+- `--mdx_enable_denoise`：启用去噪（默认：False）。
+
+VR 架构参数：
+- `--vr_batch_size`：批大小（默认：1）。
+- `--vr_window_size`：质量/速度平衡。1024 更快但稍低，320 更慢但质量更好（默认：512）。
+- `--vr_aggression`：主声部提取强度，-100 到 100（默认：5；人声/伴奏常用 5）。
+- `--vr_enable_tta`：启用 TTA，较慢但质量更好（默认：False）。
+- `--vr_high_end_process`：镜像输出缺失的高频范围（默认：False）。
+- `--vr_enable_post_process`：识别并处理人声残留伪影（默认：False）。
+- `--vr_post_process_threshold`：后处理阈值 0.1–0.3（默认：0.2）。
+
+Demucs 架构参数：
+- `--demucs_segment_size`：音频切分的片段大小，1–100；越高越慢但更好（默认：Default）。
+- `--demucs_shifts`：带随机偏移的预测次数，越高越慢但更好（默认：2）。
+- `--demucs_overlap`：预测窗口重叠，0.001–0.999；越高越慢但更好（默认：0.25）。
+- `--demucs_segments_enabled`：启用分段式处理（默认：True）。
+
+MDXC 架构参数：
+- `--mdxc_segment_size`：分段大小（默认：256）。
+- `--mdxc_override_model_segment_size`：覆盖模型默认的分段大小。
+- `--mdxc_overlap`：预测窗口重叠，范围 2–50；越高越慢但更好（默认：8）。
+- `--mdxc_batch_size`：批大小（默认：1）。
+- `--mdxc_pitch_shift`：处理时按半音单位移调；对低/高音人声可能有助（默认：0）。
+
+### 作为 Python 依赖在项目中使用
+
+这是一个使用默认“两路（伴奏/人声）”模型的最小示例：
 
 ```python
 from audio_separator.separator import Separator
 
-# Initialize the Separator class (with optional configuration properties, below)
+# 初始化 Separator（可按需传入配置）
 separator = Separator()
 
-# Load a machine learning model (if unspecified, defaults to 'model_mel_band_roformer_ep_3005_sdr_11.4360.ckpt')
+# 加载模型（不指定则使用默认：'model_mel_band_roformer_ep_3005_sdr_11.4360.ckpt'）
 separator.load_model()
 
-# Perform the separation on specific audio files without reloading the model
+# 在不重复加载模型的情况下，直接对音频进行分离
 output_files = separator.separate('audio1.wav')
 
-print(f"Separation complete! Output file(s): {' '.join(output_files)}")
+print(f"分离完成！输出文件: {' '.join(output_files)}")
 ```
 
-#### Batch processing and processing with multiple models
+#### 批处理与多模型处理
 
-You can process multiple files without reloading the model to save time and memory.
-
-You only need to load a model when choosing or changing models. See example below:
+你可以在不重复加载模型的情况下处理多个文件，从而节省时间与显存/内存。仅在更换模型时才需要调用 `load_model`：
 
 ```python
 from audio_separator.separator import Separator
 
-# Initialize the Separator class (with optional configuration properties, below)
 separator = Separator()
 
-# Load a model
+# 加载某个模型
 separator.load_model(model_filename='model_bs_roformer_ep_317_sdr_12.9755.ckpt')
 
-# Separate multiple audio files without reloading the model
+# 批量分离多个音频
 output_files = separator.separate(['audio1.wav', 'audio2.wav', 'audio3.wav'])
 
-# Load a different model
+# 切换另一个模型
 separator.load_model(model_filename='UVR_MDXNET_KARA_2.onnx')
 
-# Separate the same files with the new model
+# 使用新模型再次分离同一批文件
 output_files = separator.separate(['audio1.wav', 'audio2.wav', 'audio3.wav'])
 ```
 
-You can also specify the path to a folder containing audio files instead of listing the full paths to each of them:
+你也可以传入一个包含音频文件的文件夹路径，而不是逐个列出：
 ```python
 from audio_separator.separator import Separator
 
-# Initialize the Separator class (with optional configuration properties, below)
 separator = Separator()
-
-# Load a model
 separator.load_model(model_filename='model_bs_roformer_ep_317_sdr_12.9755.ckpt')
 
-# Separate all audio files located in a folder
+# 分离文件夹中所有音频
 output_files = separator.separate('path/to/audio_directory')
 ```
 
-#### Renaming Stems
+#### 重命名输出声部
 
-You can rename the output files by specifying the desired names. For example:
+可以通过指定输出名称来重命名分离出的文件，例如：
 ```python
 output_names = {
     "Vocals": "vocals_output",
@@ -425,27 +483,29 @@ output_names = {
 }
 output_files = separator.separate('audio1.wav', output_names)
 ```
-In this case, the output file names will be: `vocals_output.wav` and `instrumental_output.wav`.
+此时输出文件名将为：`vocals_output.wav` 与 `instrumental_output.wav`。
 
-You can also rename specific stems:
+也可以只重命名单个声部：
 
-- To rename the Vocals stem:
+- 重命名人声（Vocals）
   ```python
   output_names = {
       "Vocals": "vocals_output",
   }
   output_files = separator.separate('audio1.wav', output_names)
   ```
-  > The output files will be named: `vocals_output.wav` and `audio1_(Instrumental)_model_mel_band_roformer_ep_3005_sdr_11.wav`
-- To rename the Instrumental stem:
+  > 输出文件名将为：`vocals_output.wav` 与 `audio1_(Instrumental)_model_mel_band_roformer_ep_3005_sdr_11.wav`
+
+- 重命名伴奏（Instrumental）
   ```python
   output_names = {
       "Instrumental": "instrumental_output",
   }
   output_files = separator.separate('audio1.wav', output_names)
   ```
-  > The output files will be named: `audio1_(Vocals)_model_mel_band_roformer_ep_3005_sdr_11.wav` and `instrumental_output.wav`
-- List of stems for Demucs models:
+  > 输出文件名将为：`audio1_(Vocals)_model_mel_band_roformer_ep_3005_sdr_11.wav` 与 `instrumental_output.wav`
+
+- Demucs 模型的声部列表示例：
   - htdemucs_6s.yaml
     ```python
     output_names = {
@@ -457,7 +517,7 @@ You can also rename specific stems:
         "Piano": "piano_output",
     }
     ```
-  - Other Demucs models
+  - 其他 Demucs 模型
     ```python
     output_names = {
         "Vocals": "vocals_output",
@@ -467,150 +527,139 @@ You can also rename specific stems:
     }
     ```
 
-## Parameters for the Separator class
+## Separator 类参数
 
-- **`log_level`:** (Optional) Logging level, e.g., INFO, DEBUG, WARNING. `Default: logging.INFO`
-- **`log_formatter`:** (Optional) The log format. Default: None, which falls back to '%(asctime)s - %(levelname)s - %(module)s - %(message)s'
-- **`model_file_dir`:** (Optional) Directory to cache model files in. `Default: /tmp/audio-separator-models/`
-- **`output_dir`:** (Optional) Directory where the separated files will be saved. If not specified, uses the current directory.
-- **`output_format`:** (Optional) Format to encode output files, any common format (WAV, MP3, FLAC, M4A, etc.). `Default: WAV`
-- **`normalization_threshold`:** (Optional) The amount by which the amplitude of the output audio will be multiplied. `Default: 0.9`
-- **`amplification_threshold`:** (Optional) The minimum amplitude level at which the waveform will be amplified. If the peak amplitude of the audio is below this threshold, the waveform will be scaled up to meet it. `Default: 0.0`
-- **`output_single_stem`:** (Optional) Output only a single stem, such as 'Instrumental' and 'Vocals'. `Default: None`
-- **`invert_using_spec`:** (Optional) Flag to invert using spectrogram. `Default: False`
-- **`sample_rate`:** (Optional) Set the sample rate of the output audio. `Default: 44100`
-- **`use_soundfile`:** (Optional) Use soundfile for output writing, can solve OOM issues, especially on longer audio.
-- **`use_autocast`:** (Optional) Flag to use PyTorch autocast for faster inference. Do not use for CPU inference. `Default: False`
-- **`mdx_params`:** (Optional) MDX Architecture Specific Attributes & Defaults. `Default: {"hop_length": 1024, "segment_size": 256, "overlap": 0.25, "batch_size": 1, "enable_denoise": False}`
-- **`vr_params`:** (Optional) VR Architecture Specific Attributes & Defaults. `Default: {"batch_size": 1, "window_size": 512, "aggression": 5, "enable_tta": False, "enable_post_process": False, "post_process_threshold": 0.2, "high_end_process": False}`
-- **`demucs_params`:** (Optional) Demucs Architecture Specific Attributes & Defaults. `Default: {"segment_size": "Default", "shifts": 2, "overlap": 0.25, "segments_enabled": True}`
-- **`mdxc_params`:** (Optional) MDXC Architecture Specific Attributes & Defaults. `Default: {"segment_size": 256, "override_model_segment_size": False, "batch_size": 1, "overlap": 8, "pitch_shift": 0}`
+- **`log_level`：**（可选）日志级别，如 INFO、DEBUG、WARNING。默认：`logging.INFO`
+- **`log_formatter`：**（可选）日志格式。默认：None（回退为 `'%(asctime)s - %(levelname)s - %(module)s - %(message)s'`）
+- **`model_file_dir`：**（可选）模型缓存目录。默认：`/tmp/audio-separator-models/`
+- **`output_dir`：**（可选）输出目录。不指定则使用当前目录。
+- **`output_format`：**（可选）输出音频格式，任意常见格式（WAV、MP3、FLAC、M4A 等）。默认：`WAV`
+- **`normalization_threshold`：**（可选）输出归一化峰值。默认：`0.9`
+- **`amplification_threshold`：**（可选）最小峰值放大阈值。若音频峰值低于该值，会放大至该阈值。默认：`0.0`
+- **`output_single_stem`：**（可选）仅输出单一声部（如 Instrumental 或 Vocals）。默认：`None`
+- **`invert_using_spec`：**（可选）是否使用频谱反相。默认：`False`
+- **`sample_rate`：**（可选）输出采样率。默认：`44100`
+- **`use_soundfile`：**（可选）使用 soundfile 写出音频，可缓解长音频的 OOM 问题。
+- **`use_autocast`：**（可选）启用 PyTorch autocast 加速（不适用于 CPU 推理）。默认：`False`
+- **`mdx_params`：**（可选）MDX 架构参数与默认值。`{"hop_length": 1024, "segment_size": 256, "overlap": 0.25, "batch_size": 1, "enable_denoise": False}`
+- **`vr_params`：**（可选）VR 架构参数与默认值。`{"batch_size": 1, "window_size": 512, "aggression": 5, "enable_tta": False, "enable_post_process": False, "post_process_threshold": 0.2, "high_end_process": False}`
+- **`demucs_params`：**（可选）Demucs 架构参数与默认值。`{"segment_size": "Default", "shifts": 2, "overlap": 0.25, "segments_enabled": True}`
+- **`mdxc_params`：**（可选）MDXC 架构参数与默认值。`{"segment_size": 256, "override_model_segment_size": False, "batch_size": 1, "overlap": 8, "pitch_shift": 0}`
 
-## Remote API Usage 🌐
+## 远程 API 用法 🌐
 
-Audio Separator includes a remote API client that allows you to connect to a deployed Audio Separator API service, enabling you to perform audio separation without running the models locally. The API uses asynchronous processing with job polling for efficient handling of separation tasks.
+项目包含远程 API 客户端，可连接到已部署的 Audio Separator 服务，从而在远程执行分离任务。该 API 采用异步作业 + 轮询的方式高效处理任务。
 
-To deploy Audio Separator as an API on modal.com and use this for remote processing, please see the detailed documentation here: [audio_separator/remote/README.md](audio_separator/remote/README.md).
+如何在 modal.com 上部署 Audio Separator 并用于远程处理，请参阅：[`audio_separator/remote/README.md`](audio_separator/remote/README.md)。
 
-## Requirements 📋
+## 环境要求 📋
 
 Python >= 3.10
 
-Libraries: torch, onnx, onnxruntime, numpy, librosa, requests, six, tqdm, pydub
+依赖库：torch、onnx、onnxruntime、numpy、librosa、requests、six、tqdm、pydub
 
-## Developing Locally
+## 本地开发
 
-This project uses Poetry for dependency management and packaging. Follow these steps to setup a local development environment:
+本项目使用 Poetry 进行依赖管理与打包。建议步骤：
 
-### Prerequisites
+### 先决条件
 
-- Make sure you have Python 3.10 or newer installed on your machine.
-- Install Conda (I recommend Miniforge: [Miniforge GitHub](https://github.com/conda-forge/miniforge)) to manage your Python virtual environments
+- 确保已安装 Python 3.10 或更新版本。
+- 建议安装 Conda（推荐 Miniforge）管理虚拟环境。
 
-### Clone the Repository
-
-Clone the repository to your local machine:
+### 克隆仓库
 
 ```sh
 git clone https://github.com/YOUR_USERNAME/audio-separator.git
 cd audio-separator
 ```
 
-Replace `YOUR_USERNAME` with your GitHub username if you've forked the repository, or use the main repository URL if you have the permissions.
+若你是 fork 的仓库，请将 `YOUR_USERNAME` 替换为你的 GitHub 用户名；若具备权限，也可直接使用上游仓库地址。
 
-### Create and activate the Conda Environment
-
-To create and activate the conda environment, use the following commands:
+### 创建与激活 Conda 环境
 
 ```sh
 conda env create
 conda activate audio-separator-dev
 ```
 
-### Install Dependencies
+### 安装依赖
 
-Once you're inside the conda env, run the following command to install the project dependencies:
+在虚拟环境中执行：
 
 ```sh
 poetry install
 ```
 
-Install extra dependencies depending if you're running with GPU or CPU.
+根据运行后端安装额外依赖：
 ```sh
 poetry install --extras "cpu"
 ```
-or
+或
 ```sh
 poetry install --extras "gpu"
 ```
-or
+或
 ```sh
 poetry install --extras "dml"
 ```
 
-### Running the Command-Line Interface Locally
-
-You can run the CLI command directly within the virtual environment. For example:
+### 在本地运行命令行
 
 ```sh
 audio-separator path/to/your/audio-file.wav
 ```
 
-### Deactivate the Virtual Environment
-
-Once you are done with your development work, you can exit the virtual environment by simply typing:
+### 退出虚拟环境
 
 ```sh
 conda deactivate
 ```
 
-### Building the Package
-
-To build the package for distribution, use the following command:
+### 构建发行包
 
 ```sh
 poetry build
 ```
 
-This will generate the distribution packages in the dist directory - but for now only @beveradb will be able to publish to PyPI.
+打包产物将生成于 `dist` 目录（当前仅 @beveradb 有权限发布到 PyPI）。
 
+## 贡献 🤝
 
-## Contributing 🤝
+非常欢迎贡献！请 fork 本仓库后提交 PR，我会尽快评审与合并。
 
-Contributions are very much welcome! Please fork the repository and submit a pull request with your changes, and I'll try to review, merge and publish promptly!
+- 本项目 100% 开源，任何人可自由使用与修改。
+- 若维护工作量增大，我会寻求志愿者共同维护（不过可能性不大）。
+- MDX‑Net 等模型的研发维护在 [UVR 项目](https://github.com/Anjok07/ultimatevocalremovergui) 中进行，本仓库旨在提供 CLI / Python 封装，便于以编程的方式运行这些模型。若你计划改进“模型本身”，请到 UVR 项目参与协作并获取指引。
 
-- This project is 100% open-source and free for anyone to use and modify as they wish.
-- If the maintenance workload for this repo somehow becomes too much for me I'll ask for volunteers to share maintainership of the repo, though I don't think that is very likely
-- Development and support for the MDX-Net separation models is part of the main [UVR project](https://github.com/Anjok07/ultimatevocalremovergui), this repo is just a CLI/Python package wrapper to simplify running those models programmatically. So, if you want to try and improve the actual models, please get involved in the UVR project and look for guidance there!
+## 许可 📄
 
-## License 📄
+本项目采用 MIT 许可（见 [LICENSE](LICENSE)）。
 
-This project is licensed under the MIT [License](LICENSE).
+- 注意：如果你在其他项目中使用本项目默认模型或任何由 [UVR](https://github.com/Anjok07/ultimatevocalremovergui) 训练的模型，请遵循 MIT 许可条款并向 UVR 及其开发者致谢！
 
-- **Please Note:** If you choose to integrate this project into some other project using the default model or any other model trained as part of the [UVR](https://github.com/Anjok07/ultimatevocalremovergui) project, please honor the MIT license by providing credit to UVR and its developers!
+## 致谢 🙏
 
-## Credits 🙏
+- [Anjok07](https://github.com/Anjok07) —— [Ultimate Vocal Remover GUI](https://github.com/Anjok07/ultimatevocalremovergui) 作者；本项目大量代码来自该项目，对本项目的优点功不可没！
+- [DilanBoskan](https://github.com/DilanBoskan) —— 在项目初期的关键贡献。
+- [Kuielab & Woosung Choi](https://github.com/kuielab) —— 原始 MDX‑Net 代码作者。
+- [KimberleyJSN](https://github.com/KimberleyJensen) —— 提供了 MDX‑Net 与 Demucs 训练脚本实现方面的建议与帮助。
+- [Hv](https://github.com/NaJeongMo/Colab-for-MDX_B) —— 协助在 MDX‑Net 中加入 chunks 处理。
+- [zhzhongshi](https://github.com/zhzhongshi) —— 协助在本项目中加入对 MDXC 模型的支持。
 
-- [Anjok07](https://github.com/Anjok07) - Author of [Ultimate Vocal Remover GUI](https://github.com/Anjok07/ultimatevocalremovergui), which almost all of the code in this repo was copied from! Definitely deserving of credit for anything good from this project. Thank you!
-- [DilanBoskan](https://github.com/DilanBoskan) - Your contributions at the start of this project were essential to the success of UVR. Thank you!
-- [Kuielab & Woosung Choi](https://github.com/kuielab) - Developed the original MDX-Net AI code.
-- [KimberleyJSN](https://github.com/KimberleyJensen) - Advised and aided the implementation of the training scripts for MDX-Net and Demucs. Thank you!
-- [Hv](https://github.com/NaJeongMo/Colab-for-MDX_B) - Helped implement chunks into the MDX-Net AI code. Thank you!
-- [zhzhongshi](https://github.com/zhzhongshi) - Helped add support for the MDXC models in `audio-separator`. Thank you!
+## 联系方式 💌
 
-## Contact 💌
-
-For questions or feedback, please raise an issue or reach out to @beveradb ([Andrew Beveridge](mailto:andrew@beveridge.uk)) directly.
+如有问题或建议，请提交 issue 或直接联系 @beveradb（[Andrew Beveridge](mailto:andrew@beveridge.uk)）。
 
 ---
 <div align="center">
 
 <!-- sponsors --><!-- sponsors -->
 
-## Thanks to all contributors for their efforts
+## 感谢所有贡献者的努力
 
 <a href="https://github.com/nomadkaraoke/python-audio-separator/graphs/contributors">
   <img src="https://contrib.rocks/image?repo=nomadkaraoke/python-audio-separator" />
-</a>
+  </a>
 
 </div>
