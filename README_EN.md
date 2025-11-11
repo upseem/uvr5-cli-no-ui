@@ -1,4 +1,4 @@
-[简体中文](./README.md) | English (this page)
+[简体中文](./README.md) | English (this page) | [Model List](./models.md) | [RTX 4090 Guide](./README_4090.md)
 
 <div align="center">
  
@@ -14,6 +14,8 @@
 </div>
 
 **Summary:** Easy to use audio stem separation from the command line or as a dependency in your own Python project, using the amazing MDX-Net, VR Arch, Demucs and MDXC models available in UVR by @Anjok07 & @aufr33.
+
+> 📚 **Related Docs:** Check the [Complete Model List](./models.md) for all available models and their features, or see the [RTX 4090 Setup Guide](./README_4090.md) for GPU optimization settings.
 
 Audio Separator is a Python package that allows you to separate an audio file into various stems, using models trained by @Anjok07 for use with [Ultimate Vocal Remover](https://github.com/Anjok07/ultimatevocalremovergui).
 
@@ -95,6 +97,8 @@ If the GPU isn't being detected, make sure your docker runtime environment is pa
 ### 🎮 Nvidia GPU with CUDA or 🧪 Google Colab
 
 **Supported CUDA Versions:** 11.8 and 12.2
+
+> 💡 **RTX 4090 Users:** If you're using an RTX 4090 (Ada architecture), please check the [RTX 4090 Setup Guide](./README_4090.md) for detailed configuration instructions for Python 3.12 + CUDA 12.x + 4090 environments.
 
 💬 If successfully configured, you should see this log message when running `audio-separator --env_info`:
  `ONNXruntime has CUDAExecutionProvider available, enabling acceleration`

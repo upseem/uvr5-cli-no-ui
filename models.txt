@@ -1,0 +1,166 @@
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Model Filename                                                      Arch    Output Stems (SDR)                                            Friendly Name
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+1_HP-UVR.pth                                                        VR      instrumental* (13.7), vocals (7.9)                            VR Arch Single Model v5: 1_HP-UVR
+2_HP-UVR.pth                                                        VR      instrumental* (13.5), vocals (8.2)                            VR Arch Single Model v5: 2_HP-UVR
+3_HP-Vocal-UVR.pth                                                  VR      vocals* (8.2), instrumental (14.0)                            VR Arch Single Model v5: 3_HP-Vocal-UVR
+4_HP-Vocal-UVR.pth                                                  VR      vocals* (8.3), instrumental (13.6)                            VR Arch Single Model v5: 4_HP-Vocal-UVR
+5_HP-Karaoke-UVR.pth                                                VR      instrumental* (12.2), vocals (5.2)                            VR Arch Single Model v5: 5_HP-Karaoke-UVR
+6_HP-Karaoke-UVR.pth                                                VR      instrumental* (13.0), vocals (4.6)                            VR Arch Single Model v5: 6_HP-Karaoke-UVR
+7_HP2-UVR.pth                                                       VR      instrumental* (13.5), vocals (8.3)                            VR Arch Single Model v5: 7_HP2-UVR
+8_HP2-UVR.pth                                                       VR      instrumental* (13.5), vocals (8.2)                            VR Arch Single Model v5: 8_HP2-UVR
+9_HP2-UVR.pth                                                       VR      instrumental* (13.7), vocals (8.0)                            VR Arch Single Model v5: 9_HP2-UVR
+10_SP-UVR-2B-32000-1.pth                                            VR      instrumental* (13.3), vocals (7.5)                            VR Arch Single Model v5: 10_SP-UVR-2B-32000-1
+11_SP-UVR-2B-32000-2.pth                                            VR      instrumental* (13.8), vocals (7.3)                            VR Arch Single Model v5: 11_SP-UVR-2B-32000-2
+12_SP-UVR-3B-44100.pth                                              VR      instrumental* (13.1), vocals (7.5)                            VR Arch Single Model v5: 12_SP-UVR-3B-44100
+13_SP-UVR-4B-44100-1.pth                                            VR      instrumental* (13.3), vocals (7.8)                            VR Arch Single Model v5: 13_SP-UVR-4B-44100-1
+14_SP-UVR-4B-44100-2.pth                                            VR      instrumental* (13.5), vocals (8.0)                            VR Arch Single Model v5: 14_SP-UVR-4B-44100-2
+15_SP-UVR-MID-44100-1.pth                                           VR      instrumental* (13.1), vocals (7.5)                            VR Arch Single Model v5: 15_SP-UVR-MID-44100-1
+16_SP-UVR-MID-44100-2.pth                                           VR      instrumental* (13.3), vocals (7.4)                            VR Arch Single Model v5: 16_SP-UVR-MID-44100-2
+17_HP-Wind_Inst-UVR.pth                                             VR      no woodwinds*, woodwinds                                      VR Arch Single Model v5: 17_HP-Wind_Inst-UVR
+UVR-De-Echo-Aggressive.pth                                          VR      no echo*, echo                                                VR Arch Single Model v5: UVR-De-Echo-Aggressive by FoxJoy
+UVR-De-Echo-Normal.pth                                              VR      no echo*, echo                                                VR Arch Single Model v5: UVR-De-Echo-Normal by FoxJoy
+UVR-DeEcho-DeReverb.pth                                             VR      no reverb*, reverb                                            VR Arch Single Model v5: UVR-DeEcho-DeReverb by FoxJoy
+UVR-DeNoise-Lite.pth                                                VR      noise*, no noise                                              VR Arch Single Model v5: UVR-DeNoise-Lite by FoxJoy
+UVR-DeNoise.pth                                                     VR      noise*, no noise                                              VR Arch Single Model v5: UVR-DeNoise by FoxJoy
+UVR-BVE-4B_SN-44100-1.pth                                           VR      vocals* (0.0), instrumental (7.7)                             VR Arch Single Model v5: UVR-BVE-4B_SN-44100-1
+MGM_HIGHEND_v4.pth                                                  VR      instrumental* (12.3), vocals (6.9)                            VR Arch Single Model v4: MGM_HIGHEND_v4
+MGM_LOWEND_A_v4.pth                                                 VR      instrumental* (13.0), vocals (7.0)                            VR Arch Single Model v4: MGM_LOWEND_A_v4
+MGM_LOWEND_B_v4.pth                                                 VR      instrumental* (13.1), vocals (7.5)                            VR Arch Single Model v4: MGM_LOWEND_B_v4
+MGM_MAIN_v4.pth                                                     VR      instrumental* (12.4), vocals (6.2)                            VR Arch Single Model v4: MGM_MAIN_v4
+UVR-De-Reverb-aufr33-jarredou.pth                                   VR      dry*, no dry                                                  VR Arch Single Model v4: UVR-De-Reverb by aufr33-jarredou
+UVR-BVE-4B_SN-44100-2.pth                                           VR      Unknown                                                       VR Arch Single Model v5: UVR-BVE-4B_SN-44100-2
+UVR-MDX-NET-Inst_HQ_1.onnx                                          MDX     instrumental* (15.4), vocals (8.8)                            MDX-Net Model: UVR-MDX-NET Inst HQ 1
+UVR-MDX-NET-Inst_HQ_2.onnx                                          MDX     instrumental* (15.3), vocals (8.8)                            MDX-Net Model: UVR-MDX-NET Inst HQ 2
+UVR-MDX-NET-Inst_HQ_3.onnx                                          MDX     instrumental* (15.4), vocals (8.8)                            MDX-Net Model: UVR-MDX-NET Inst HQ 3
+UVR-MDX-NET-Inst_HQ_4.onnx                                          MDX     instrumental* (15.5), vocals (8.8)                            MDX-Net Model: UVR-MDX-NET Inst HQ 4
+UVR-MDX-NET-Inst_HQ_5.onnx                                          MDX     instrumental* (15.3), vocals (8.7)                            MDX-Net Model: UVR-MDX-NET Inst HQ 5
+UVR_MDXNET_Main.onnx                                                MDX     vocals* (10.2), instrumental (15.4)                           MDX-Net Model: UVR-MDX-NET Main
+UVR-MDX-NET-Inst_Main.onnx                                          MDX     instrumental* (15.1), vocals (8.5)                            MDX-Net Model: UVR-MDX-NET Inst Main
+UVR_MDXNET_1_9703.onnx                                              MDX     vocals* (9.6), instrumental (15.0)                            MDX-Net Model: UVR-MDX-NET 1
+UVR_MDXNET_2_9682.onnx                                              MDX     vocals* (9.4), instrumental (15.0)                            MDX-Net Model: UVR-MDX-NET 2
+UVR_MDXNET_3_9662.onnx                                              MDX     vocals* (9.7), instrumental (15.0)                            MDX-Net Model: UVR-MDX-NET 3
+UVR-MDX-NET-Inst_1.onnx                                             MDX     instrumental* (15.2), vocals (9.2)                            MDX-Net Model: UVR-MDX-NET Inst 1
+UVR-MDX-NET-Inst_2.onnx                                             MDX     instrumental* (15.3), vocals (9.2)                            MDX-Net Model: UVR-MDX-NET Inst 2
+UVR-MDX-NET-Inst_3.onnx                                             MDX     instrumental* (15.3), vocals (9.2)                            MDX-Net Model: UVR-MDX-NET Inst 3
+UVR_MDXNET_KARA.onnx                                                MDX     vocals* (5.6), instrumental (14.1)                            MDX-Net Model: UVR-MDX-NET Karaoke
+UVR_MDXNET_KARA_2.onnx                                              MDX     instrumental* (14.8), vocals (5.4)                            MDX-Net Model: UVR-MDX-NET Karaoke 2
+UVR_MDXNET_9482.onnx                                                MDX     vocals* (9.3), instrumental (14.9)                            MDX-Net Model: UVR_MDXNET_9482
+UVR-MDX-NET-Voc_FT.onnx                                             MDX     vocals* (10.2), instrumental (15.4)                           MDX-Net Model: UVR-MDX-NET Voc FT
+Kim_Vocal_1.onnx                                                    MDX     vocals* (10.1), instrumental (15.5)                           MDX-Net Model: Kim Vocal 1
+Kim_Vocal_2.onnx                                                    MDX     vocals* (10.2), instrumental (15.4)                           MDX-Net Model: Kim Vocal 2
+Kim_Inst.onnx                                                       MDX     instrumental* (15.5), vocals (9.1)                            MDX-Net Model: Kim Inst
+Reverb_HQ_By_FoxJoy.onnx                                            MDX     reverb*, no reverb                                            MDX-Net Model: Reverb HQ By FoxJoy
+UVR-MDX-NET_Crowd_HQ_1.onnx                                         MDX     no crowd*, crowd                                              MDX-Net Model: UVR-MDX-NET Crowd HQ 1 By Aufr33
+kuielab_a_vocals.onnx                                               MDX     vocals* (9.6), instrumental (15.3)                            MDX-Net Model: kuielab_a_vocals
+kuielab_a_other.onnx                                                MDX     other*, no other                                              MDX-Net Model: kuielab_a_other
+kuielab_a_bass.onnx                                                 MDX     bass* (10.4), no bass                                         MDX-Net Model: kuielab_a_bass
+kuielab_a_drums.onnx                                                MDX     drums* (7.0), no drums                                        MDX-Net Model: kuielab_a_drums
+kuielab_b_vocals.onnx                                               MDX     vocals* (9.0), instrumental (15.1)                            MDX-Net Model: kuielab_b_vocals
+kuielab_b_other.onnx                                                MDX     other*, no other                                              MDX-Net Model: kuielab_b_other
+kuielab_b_bass.onnx                                                 MDX     bass* (9.9), no bass                                          MDX-Net Model: kuielab_b_bass
+kuielab_b_drums.onnx                                                MDX     drums* (7.1), no drums                                        MDX-Net Model: kuielab_b_drums
+UVR-MDX-NET_Main_340.onnx                                           MDX     vocals* (10.2), instrumental (15.4)                           MDX-Net Model VIP: UVR-MDX-NET_Main_340
+UVR-MDX-NET_Main_390.onnx                                           MDX     vocals* (4.5), instrumental (8.8)                             MDX-Net Model VIP: UVR-MDX-NET_Main_390
+UVR-MDX-NET_Main_406.onnx                                           MDX     vocals* (10.4), instrumental (15.3)                           MDX-Net Model VIP: UVR-MDX-NET_Main_406
+UVR-MDX-NET_Main_427.onnx                                           MDX     vocals* (10.2), instrumental (15.5)                           MDX-Net Model VIP: UVR-MDX-NET_Main_427
+UVR-MDX-NET_Main_438.onnx                                           MDX     vocals* (10.1), instrumental (15.3)                           MDX-Net Model VIP: UVR-MDX-NET_Main_438
+UVR-MDX-NET_Inst_82_beta.onnx                                       MDX     instrumental* (14.3), vocals (8.2)                            MDX-Net Model VIP: UVR-MDX-NET_Inst_82_beta
+UVR-MDX-NET_Inst_90_beta.onnx                                       MDX     instrumental* (13.9), vocals (8.1)                            MDX-Net Model VIP: UVR-MDX-NET_Inst_90_beta
+UVR-MDX-NET_Inst_187_beta.onnx                                      MDX     instrumental* (14.3), vocals (8.5)                            MDX-Net Model VIP: UVR-MDX-NET_Inst_187_beta
+UVR-MDX-NET-Inst_full_292.onnx                                      MDX     instrumental* (15.1), vocals (8.5)                            MDX-Net Model VIP: UVR-MDX-NET-Inst_full_292
+htdemucs_ft.yaml                                                    Demucs  vocals (10.8), drums (10.0), bass (12.0), other               Demucs v4: htdemucs_ft
+htdemucs.yaml                                                       Demucs  vocals (9.9), drums (9.4), bass (11.6), other                 Demucs v4: htdemucs
+hdemucs_mmi.yaml                                                    Demucs  vocals (10.2), drums (9.6), bass (12.2), other                Demucs v4: hdemucs_mmi
+htdemucs_6s.yaml                                                    Demucs  vocals (9.6), drums (8.5), bass (10.1), guitar, piano, other  Demucs v4: htdemucs_6s
+MDX23C-8KFFT-InstVoc_HQ.ckpt                                        MDXC    vocals (10.6), instrumental (15.8)                            MDX23C Model: MDX23C-InstVoc HQ
+MDX23C_D1581.ckpt                                                   MDXC    vocals (10.0), instrumental (15.5)                            MDX23C Model VIP: MDX23C_D1581
+MDX23C-8KFFT-InstVoc_HQ_2.ckpt                                      MDXC    vocals (10.5), instrumental (15.9)                            MDX23C Model VIP: MDX23C-InstVoc HQ 2
+model_bs_roformer_ep_317_sdr_12.9755.ckpt                           MDXC    vocals* (11.8), instrumental (16.5)                           Roformer Model: BS-Roformer-Viperx-1297
+model_bs_roformer_ep_368_sdr_12.9628.ckpt                           MDXC    vocals* (12.1), instrumental (16.3)                           Roformer Model: BS-Roformer-Viperx-1296
+model_bs_roformer_ep_937_sdr_10.5309.ckpt                           MDXC    no drum-bass*, drum-bass                                      Roformer Model: BS-Roformer-Viperx-1053
+model_mel_band_roformer_ep_3005_sdr_11.4360.ckpt                    MDXC    vocals* (10.5), instrumental (15.1)                           Roformer Model: Mel-Roformer-Viperx-1143
+melband_roformer_inst_v1.ckpt                                       MDXC    instrumental* (15.9), vocals (9.8)                            Roformer Model: MelBand Roformer Kim | Inst V1 by Unwa
+melband_roformer_inst_v2.ckpt                                       MDXC    instrumental* (16.1), vocals (10.3)                           Roformer Model: MelBand Roformer Kim | Inst V2 by Unwa
+melband_roformer_instvoc_duality_v1.ckpt                            MDXC    vocals (11.0), instrumental (16.1)                            Roformer Model: MelBand Roformer Kim | InstVoc Duality V1 by Unwa
+melband_roformer_instvox_duality_v2.ckpt                            MDXC    vocals (11.0), instrumental (16.1)                            Roformer Model: MelBand Roformer Kim | InstVoc Duality V2 by Unwa
+MDX23C-De-Reverb-aufr33-jarredou.ckpt                               MDXC    dry, no dry                                                   MDX23C Model: MDX23C De-Reverb by aufr33-jarredou
+MDX23C-DrumSep-aufr33-jarredou.ckpt                                 MDXC    kick, snare, toms, hh, ride, crash                            MDX23C Model: MDX23C DrumSep by aufr33-jarredou
+mel_band_roformer_karaoke_aufr33_viperx_sdr_10.1956.ckpt            MDXC    vocals* (8.4), instrumental (14.7)                            Roformer Model: Mel-Roformer-Karaoke-Aufr33-Viperx
+mel_band_roformer_karaoke_gabox.ckpt                                MDXC    Unknown                                                       Roformer Model: MelBand Roformer | Karaoke by Gabox
+mel_band_roformer_karaoke_gabox_v2.ckpt                             MDXC    Unknown                                                       Roformer Model: MelBand Roformer | Karaoke V2 by Gabox
+mel_band_roformer_karaoke_becruily.ckpt                             MDXC    Unknown                                                       Roformer Model: MelBand Roformer | Karaoke by becruily
+denoise_mel_band_roformer_aufr33_sdr_27.9959.ckpt                   MDXC    dry*, other                                                   Roformer Model: Mel-Roformer-Denoise-Aufr33
+denoise_mel_band_roformer_aufr33_aggr_sdr_27.9768.ckpt              MDXC    dry*, other                                                   Roformer Model: Mel-Roformer-Denoise-Aufr33-Aggr
+mel_band_roformer_denoise_debleed_gabox.ckpt                        MDXC    Unknown                                                       Roformer Model: MelBand Roformer | Denoise-Debleed by Gabox
+mel_band_roformer_crowd_aufr33_viperx_sdr_8.7144.ckpt               MDXC    crowd*, other                                                 Roformer Model: Mel-Roformer-Crowd-Aufr33-Viperx
+deverb_bs_roformer_8_384dim_10depth.ckpt                            MDXC    noreverb*, reverb                                             Roformer Model: BS-Roformer-De-Reverb
+vocals_mel_band_roformer.ckpt                                       MDXC    vocals* (12.6), other                                         Roformer Model: MelBand Roformer | Vocals by Kimberley Jensen
+mel_band_roformer_kim_ft_unwa.ckpt                                  MDXC    vocals* (12.4), other                                         Roformer Model: MelBand Roformer Kim | FT by unwa
+mel_band_roformer_kim_ft2_unwa.ckpt                                 MDXC    Unknown                                                       Roformer Model: MelBand Roformer Kim | FT 2 by unwa
+mel_band_roformer_kim_ft2_bleedless_unwa.ckpt                       MDXC    Unknown                                                       Roformer Model: MelBand Roformer Kim | FT 2 Bleedless by unwa
+mel_band_roformer_kim_ft3_unwa.ckpt                                 MDXC    Unknown                                                       Roformer Model: MelBand Roformer Kim | FT 3 by unwa
+melband_roformer_inst_v1_plus.ckpt                                  MDXC    Unknown                                                       Roformer Model: MelBand Roformer Kim | Inst V1 Plus by Unwa
+melband_roformer_inst_v1e.ckpt                                      MDXC    instrumental* (15.8), vocals (9.6)                            Roformer Model: MelBand Roformer Kim | Inst V1 (E) by Unwa
+melband_roformer_inst_v1e_plus.ckpt                                 MDXC    Unknown                                                       Roformer Model: MelBand Roformer Kim | Inst V1 (E) Plus by Unwa
+bs_roformer_vocals_revive_unwa.ckpt                                 MDXC    Unknown                                                       Roformer Model: BS Roformer | Vocals Revive by Unwa
+bs_roformer_vocals_revive_v2_unwa.ckpt                              MDXC    Unknown                                                       Roformer Model: BS Roformer | Vocals Revive V2 by Unwa
+bs_roformer_vocals_revive_v3e_unwa.ckpt                             MDXC    Unknown                                                       Roformer Model: BS Roformer | Vocals Revive V3e by Unwa
+mel_band_roformer_vocals_becruily.ckpt                              MDXC    Unknown                                                       Roformer Model: MelBand Roformer | Vocals by becruily
+mel_band_roformer_instrumental_becruily.ckpt                        MDXC    Unknown                                                       Roformer Model: MelBand Roformer | Instrumental by becruily
+mel_band_roformer_vocal_fullness_aname.ckpt                         MDXC    Unknown                                                       Roformer Model: MelBand Roformer | Vocals Fullness by Aname
+bs_roformer_vocals_gabox.ckpt                                       MDXC    Unknown                                                       Roformer Model: BS Roformer | Vocals by Gabox
+mel_band_roformer_vocals_gabox.ckpt                                 MDXC    Unknown                                                       Roformer Model: MelBand Roformer | Vocals by Gabox
+mel_band_roformer_vocals_v2_gabox.ckpt                              MDXC    Unknown                                                       Roformer Model: MelBand Roformer | Vocals V2 by Gabox
+mel_band_roformer_vocals_fv1_gabox.ckpt                             MDXC    Unknown                                                       Roformer Model: MelBand Roformer | Vocals FV1 by Gabox
+mel_band_roformer_vocals_fv2_gabox.ckpt                             MDXC    Unknown                                                       Roformer Model: MelBand Roformer | Vocals FV2 by Gabox
+mel_band_roformer_vocals_fv3_gabox.ckpt                             MDXC    Unknown                                                       Roformer Model: MelBand Roformer | Vocals FV3 by Gabox
+mel_band_roformer_vocals_fv4_gabox.ckpt                             MDXC    Unknown                                                       Roformer Model: MelBand Roformer | Vocals FV4 by Gabox
+mel_band_roformer_vocals_fv5_gabox.ckpt                             MDXC    Unknown                                                       Roformer Model: MelBand Roformer | Vocals FV5 by Gabox
+mel_band_roformer_vocals_fv6_gabox.ckpt                             MDXC    Unknown                                                       Roformer Model: MelBand Roformer | Vocals FV6 by Gabox
+mel_band_roformer_instrumental_gabox.ckpt                           MDXC    Unknown                                                       Roformer Model: MelBand Roformer | Instrumental by Gabox
+mel_band_roformer_instrumental_2_gabox.ckpt                         MDXC    Unknown                                                       Roformer Model: MelBand Roformer | Instrumental 2 by Gabox
+mel_band_roformer_instrumental_3_gabox.ckpt                         MDXC    Unknown                                                       Roformer Model: MelBand Roformer | Instrumental 3 by Gabox
+mel_band_roformer_instrumental_bleedless_v1_gabox.ckpt              MDXC    Unknown                                                       Roformer Model: MelBand Roformer | Instrumental Bleedless V1 by Gabox
+mel_band_roformer_instrumental_bleedless_v2_gabox.ckpt              MDXC    Unknown                                                       Roformer Model: MelBand Roformer | Instrumental Bleedless V2 by Gabox
+mel_band_roformer_instrumental_bleedless_v3_gabox.ckpt              MDXC    Unknown                                                       Roformer Model: MelBand Roformer | Instrumental Bleedless V3 by Gabox
+mel_band_roformer_instrumental_fullness_v1_gabox.ckpt               MDXC    Unknown                                                       Roformer Model: MelBand Roformer | Instrumental Fullness V1 by Gabox
+mel_band_roformer_instrumental_fullness_v2_gabox.ckpt               MDXC    Unknown                                                       Roformer Model: MelBand Roformer | Instrumental Fullness V2 by Gabox
+mel_band_roformer_instrumental_fullness_v3_gabox.ckpt               MDXC    Unknown                                                       Roformer Model: MelBand Roformer | Instrumental Fullness V3 by Gabox
+mel_band_roformer_instrumental_fullness_noise_v4_gabox.ckpt         MDXC    Unknown                                                       Roformer Model: MelBand Roformer | Instrumental Fullness Noisy V4 by Gabox
+mel_band_roformer_instrumental_instv5_gabox.ckpt                    MDXC    Unknown                                                       Roformer Model: MelBand Roformer | INSTV5 by Gabox
+mel_band_roformer_instrumental_instv5n_gabox.ckpt                   MDXC    Unknown                                                       Roformer Model: MelBand Roformer | INSTV5N by Gabox
+mel_band_roformer_instrumental_instv6_gabox.ckpt                    MDXC    Unknown                                                       Roformer Model: MelBand Roformer | INSTV6 by Gabox
+mel_band_roformer_instrumental_instv6n_gabox.ckpt                   MDXC    Unknown                                                       Roformer Model: MelBand Roformer | INSTV6N by Gabox
+mel_band_roformer_instrumental_instv7_gabox.ckpt                    MDXC    Unknown                                                       Roformer Model: MelBand Roformer | INSTV7 by Gabox
+mel_band_roformer_instrumental_instv7n_gabox.ckpt                   MDXC    Unknown                                                       Roformer Model: MelBand Roformer | INSTV7N by Gabox
+mel_band_roformer_instrumental_instv8_gabox.ckpt                    MDXC    Unknown                                                       Roformer Model: MelBand Roformer | INSTV8 by Gabox
+mel_band_roformer_instrumental_instv8n_gabox.ckpt                   MDXC    Unknown                                                       Roformer Model: MelBand Roformer | INSTV8N by Gabox
+mel_band_roformer_instrumental_fv7z_gabox.ckpt                      MDXC    Unknown                                                       Roformer Model: MelBand Roformer | Instrumental FV7z by Gabox
+mel_band_roformer_instrumental_fv8_gabox.ckpt                       MDXC    Unknown                                                       Roformer Model: MelBand Roformer | Instrumental FV8 by Gabox
+mel_band_roformer_instrumental_fvx_gabox.ckpt                       MDXC    Unknown                                                       Roformer Model: MelBand Roformer | Instrumental FVX by Gabox
+dereverb_mel_band_roformer_anvuew_sdr_19.1729.ckpt                  MDXC    noreverb*, reverb                                             Roformer Model: MelBand Roformer | De-Reverb by anvuew
+dereverb_mel_band_roformer_less_aggressive_anvuew_sdr_18.8050.ckpt  MDXC    noreverb*, reverb                                             Roformer Model: MelBand Roformer | De-Reverb Less Aggressive by anvuew
+dereverb_mel_band_roformer_mono_anvuew.ckpt                         MDXC    Unknown                                                       Roformer Model: MelBand Roformer | De-Reverb Mono by anvuew
+dereverb_big_mbr_ep_362.ckpt                                        MDXC    Unknown                                                       Roformer Model: MelBand Roformer | De-Reverb Big by Sucial
+dereverb_super_big_mbr_ep_346.ckpt                                  MDXC    Unknown                                                       Roformer Model: MelBand Roformer | De-Reverb Super Big by Sucial
+dereverb-echo_mel_band_roformer_sdr_10.0169.ckpt                    MDXC    dry, no dry                                                   Roformer Model: MelBand Roformer | De-Reverb-Echo by Sucial
+dereverb-echo_mel_band_roformer_sdr_13.4843_v2.ckpt                 MDXC    dry*, no dry                                                  Roformer Model: MelBand Roformer | De-Reverb-Echo V2 by Sucial
+dereverb_echo_mbr_fused.ckpt                                        MDXC    Unknown                                                       Roformer Model: MelBand Roformer | De-Reverb-Echo Fused by Sucial
+MelBandRoformerSYHFT.ckpt                                           MDXC    vocals* (8.0), other                                          Roformer Model: MelBand Roformer Kim | SYHFT by SYH99999
+MelBandRoformerSYHFTV2.ckpt                                         MDXC    vocals* (8.6), other                                          Roformer Model: MelBand Roformer Kim | SYHFT V2 by SYH99999
+MelBandRoformerSYHFTV2.5.ckpt                                       MDXC    vocals* (8.5), other                                          Roformer Model: MelBand Roformer Kim | SYHFT V2.5 by SYH99999
+MelBandRoformerSYHFTV3Epsilon.ckpt                                  MDXC    vocals* (9.5), other                                          Roformer Model: MelBand Roformer Kim | SYHFT V3 by SYH99999
+MelBandRoformerBigSYHFTV1.ckpt                                      MDXC    vocals* (12.3), other                                         Roformer Model: MelBand Roformer Kim | Big SYHFT V1 by SYH99999
+melband_roformer_big_beta4.ckpt                                     MDXC    vocals* (12.5), other                                         Roformer Model: MelBand Roformer Kim | Big Beta 4 FT by unwa
+melband_roformer_big_beta5e.ckpt                                    MDXC    vocals* (12.4), other                                         Roformer Model: MelBand Roformer Kim | Big Beta 5e FT by unwa
+melband_roformer_big_beta6.ckpt                                     MDXC    Unknown                                                       Roformer Model: MelBand Roformer | Big Beta 6 by unwa
+melband_roformer_big_beta6x.ckpt                                    MDXC    Unknown                                                       Roformer Model: MelBand Roformer | Big Beta 6X by unwa
+model_chorus_bs_roformer_ep_267_sdr_24.1275.ckpt                    MDXC    male, female                                                  Roformer Model: BS Roformer | Chorus Male-Female by Sucial
+bs_roformer_male_female_by_aufr33_sdr_7.2889.ckpt                   MDXC    Unknown                                                       Roformer Model: BS Roformer | Male-Female by aufr33
+aspiration_mel_band_roformer_sdr_18.9845.ckpt                       MDXC    aspiration, other                                             Roformer Model: MelBand Roformer | Aspiration by Sucial
+aspiration_mel_band_roformer_less_aggr_sdr_18.1201.ckpt             MDXC    aspiration, other                                             Roformer Model: MelBand Roformer | Aspiration Less Aggressive by Sucial
+mel_band_roformer_bleed_suppressor_v1.ckpt                          MDXC    instrumental*, bleed                                          Roformer Model: MelBand Roformer | Bleed Suppressor V1 by unwa-97chris
+bs_roformer_vocals_resurrection_unwa.ckpt                           MDXC    Unknown                                                       Roformer Model: BS Roformer | Vocals Resurrection by unwa
+bs_roformer_instrumental_resurrection_unwa.ckpt                     MDXC    Unknown                                                       Roformer Model: BS Roformer | Instrumental Resurrection by unwa
+BS-Roformer-SW.ckpt                                                 MDXC    Unknown                                                       Roformer Model: BS Roformer SW by jarredou

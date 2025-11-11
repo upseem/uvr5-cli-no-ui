@@ -1,4 +1,4 @@
-简体中文（本页） | [English](./README_EN.md)
+简体中文（本页） | [English](./README_EN.md) | [模型列表](./models.md) | [RTX 4090 指南](./README_4090.md)
 
 <div align="center">
  
@@ -14,6 +14,8 @@
 </div>
 
 **摘要：** 这是一个易用的音频声部分离工具，既可以通过命令行使用，也可以作为 Python 依赖集成到你的项目中。它基于 UVR 社区（@Anjok07 & @aufr33）提供的优秀模型：MDX‑Net、VR 架构、Demucs 和 MDXC。
+
+> 📚 **相关文档：** 查看 [完整模型列表](./models.md) 了解所有可用模型及其特点，或查看 [RTX 4090 专用配置指南](./README_4090.md) 获取 GPU 优化设置。
 
 Audio Separator 是一个 Python 包，可将音频文件分离为多个声部（stems）。所用模型由 @Anjok07 为 [Ultimate Vocal Remover](https://github.com/Anjok07/ultimatevocalremovergui) 训练并提供。
 
@@ -91,6 +93,8 @@ docker run -it --gpus all -v `pwd`:/workdir beveradb/audio-separator:gpu input.w
 ### 🎮 Nvidia GPU（CUDA）或 🧪 Google Colab
 
 支持的 CUDA 版本：11.8 与 12.2
+
+> 💡 **RTX 4090 用户专用指南：** 如果你使用的是 RTX 4090（Ada 架构），请查看 [RTX 4090 专用配置指南](./README_4090.md) 获取针对 Python 3.12 + CUDA 12.x + 4090 环境的详细配置说明。
 
 成功配置后，运行 `audio-separator --env_info` 应看到：
 `ONNXruntime has CUDAExecutionProvider available, enabling acceleration`
